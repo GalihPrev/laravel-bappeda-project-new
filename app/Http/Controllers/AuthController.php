@@ -38,6 +38,8 @@ class AuthController extends Controller
             } else if (Auth::user()->role_id == 3) {
                 return redirect()->intended('kelurahan/dashboard-k')->with('success', 'Login Berhasil');
             }
+        } else {
+            return back()->with('loginError', 'Login gagal! username atau password salah.');
         }
 
         return back()->with('loginError', 'Login gagal! username atau password salah.');
