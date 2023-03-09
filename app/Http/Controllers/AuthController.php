@@ -28,7 +28,7 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-
+        dd(Auth::attempt($credential));
         if (Auth::attempt($credential)) {
             $request->session()->regenerate();
             if (Auth::user()->role_id == 1) {
