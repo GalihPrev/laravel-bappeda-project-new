@@ -26,7 +26,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/profile', [ProfileController::class, 'profile'])->middleware('auth');
