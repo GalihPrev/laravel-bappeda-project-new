@@ -18,7 +18,10 @@ class KelurahanSeeder extends Seeder
     {
         $dataKelurahan = [
             ['name' => 'Lowokwaru'],
-
+            ['name' => 'Jatimulyo'],
+            ['name' => 'Kedungkandang'],
+            ['name' => 'Klojen'],   
+            ['name' => 'Bappeda']
         ];
 
         foreach ($dataKelurahan as $data) {

@@ -17,6 +17,7 @@ class RoleSeeder extends Seeder
     {
         $dataRole= [
             ['name' => 'Masyarakat'],
+            
 
         ];
 

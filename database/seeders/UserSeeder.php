@@ -16,24 +16,24 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // $dataUser = [
-        //     ['username' => 'LPMK-LOWOKWARU'],
-        //     ['password' => 'password'],
-        //     ['role_id' => 1],
-        //     ['kelurahan_id' => 1],
+        $dataUser = [
+            ['username' => 'Bappeda'],
+            ['password' => 'password'],
+            ['role_id' => 1],
+            ['kelurahan_id' => 1],
             
 
-        // ];
+        ];
 
-        // foreach ($dataUser as $data) {
-        //     DB::table('users')->insert([
-        //         'username' => $data['username'],
-        //         'password' => $data['password'],
-        //         'role_id' => $data['role_id'],
-        //         'kelurahan_id' => $data['kelurahan_id'],
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //     ]);
-        // }
+        foreach ($dataUser as $data) {
+            DB::table('users')->insert([
+                'username' => $data['username'],
+                'password' => $data['password'],
+                'role_id' => $data['role_id'],
+                'kelurahan_id' => $data['kelurahan_id'],
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }
