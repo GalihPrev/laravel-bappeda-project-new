@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
 {
@@ -25,10 +26,17 @@ class UserSeeder extends Seeder
 
         ];
 
+        User::create([
+            'username' => 'Bappeda',
+            'password' => Hash::make('password'),
+            'role_id' => 2,
+            'kelurahan_id' => 1,
+        ]);
+
         foreach ($dataUser as $data) {
             DB::table('users')->insert([
                 'username' => $data['username'],
-                'password' => $data['password'],
+                'password' => 'password',
                 'role_id' => $data['role_id'],
                 'kelurahan_id' => $data['kelurahan_id'],
                 'created_at' => now(),

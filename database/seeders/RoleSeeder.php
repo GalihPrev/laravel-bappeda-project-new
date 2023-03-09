@@ -15,9 +15,11 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $dataRole= [
+        $dataRole = [
             ['name' => 'Masyarakat'],
-            
+            ['name' => 'Bappeda'],
+            ['name' => 'Keluarahan'],
+
 
         ];
 
