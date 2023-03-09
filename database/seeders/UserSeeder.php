@@ -33,15 +33,15 @@ class UserSeeder extends Seeder
             'kelurahan_id' => 1,
         ]);
 
-        foreach ($dataUser as $data) {
-            DB::table('users')->insert([
-                'username' => $data['username'],
-                'password' => 'password',
-                'role_id' => $data['role_id'],
-                'kelurahan_id' => $data['kelurahan_id'],
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-        }
+        // foreach ($dataUser as $data) {
+        //     DB::table('users')->insert([
+        //         'username' => $data['username'],
+        //         'password' => 'password',
+        //         'role_id' => $data['role_id'],
+        //         'kelurahan_id' => $data['kelurahan_id'],
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ]);
+        // }
     }
 }
