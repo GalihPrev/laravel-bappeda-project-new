@@ -27,13 +27,20 @@ class AuthController extends Controller
         //     'username' => 'required',
         //     'password' => 'required'
         // ]);
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ]);
 
-        $credential = [
-            'username' => session('username'),
-            'password' => session('password'),
-        ];
+        // $credential = [
+        //     'username' => session('username'),
+        //     'password' => session('password'),
+        // ];
 
-        if (Auth::attempt($credential)) {
+        if (Auth::attempt([
+            'username' => $request->username,
+            'password' => $request->password,
+        ])) {
             $request->session()->regenerate();
             if (Auth::user()->role_id == 1) {
                 return redirect()->intended('masyarakat/riwayat-m')->with('success', 'Login Berhasil');
