@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -20,27 +21,20 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    public function username(){
+        return 'username';
+    }
+
     public function authLogin(Request $request)
     {
-        // // validate form
-        // $credential = $request->validate([
-        //     'username' => 'required',
-        //     'password' => 'required'
-        // ]);
         $request->validate([
             'username' => 'required',
             'password' => 'required'
         ]);
 
-        // $credential = [
-        //     'username' => session('username'),
-        //     'password' => session('password'),
-        // ];
-
-        if (Auth::attempt([
-            'username' => $request->username,
-            'password' => $request->password,
-        ])) {
+        // $request['password'] = Hash::make($request->password);
+        $credential = $request->only('username', 'password');
+        if (Auth::attempt($credential)) {
             $request->session()->regenerate();
             if (Auth::user()->role_id == 1) {
                 return redirect()->intended('masyarakat/riwayat-m')->with('success', 'Login Berhasil');
@@ -49,10 +43,7 @@ class AuthController extends Controller
             } else if (Auth::user()->role_id == 3) {
                 return redirect()->intended('kelurahan/dashboard-k')->with('success', 'Login Berhasil');
             }
-        } else {
-            return back()->with('loginError', 'Login gagal! username atau password salah.');
         }
-
         return back()->with('loginError', 'Login gagal! username atau password salah.');
     }
 
