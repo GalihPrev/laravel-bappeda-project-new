@@ -22,14 +22,15 @@ class UserSeeder extends Seeder
             ['password' => 'password'],
             ['role_id' => 1],
             ['kelurahan_id' => 1],
-            
+
 
         ];
 
+        // crate data user with bcrypt password
         User::create([
             'username' => 'Bappeda',
-            'password' => Hash::make('password'),
-            'role_id' => 2,
+            'password' => 'password',
+            'role_id' => 1,
             'kelurahan_id' => 1,
         ]);
 
